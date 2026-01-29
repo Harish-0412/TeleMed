@@ -1,234 +1,252 @@
-# TeleMed - Rural Healthcare Platform
+🏥 TeleMed – Rural Healthcare Telemedicine Platform
 
-A comprehensive telemedicine platform designed specifically for rural healthcare delivery with offline capabilities, low-bandwidth optimization, and local facilitator support.
+TeleMed is a comprehensive, offline-first telemedicine platform designed to improve healthcare accessibility in rural and underserved regions. It integrates IoT-based vital sign monitoring, AI-assisted medical analysis, and low-bandwidth teleconsultation to deliver reliable, scalable, and cost-effective healthcare solutions.
 
-## 🚀 Features
+The platform is optimized for low-connectivity environments and supports assisted consultations through health facilitators, enabling early diagnosis, continuous monitoring, and secure digital medical records.
 
-### 🏥 **Core Healthcare Services**
-- **Assisted Consultations** - Local facilitators help patients during video consultations
-- **Low-Bandwidth Teleconsult** - Optimized for 2G/3G networks in remote areas
-- **AI Eye Abnormality Detection** - Advanced AI system for detecting eye diseases
-- **Smart Appointment Scheduling** - Intelligent doctor availability management
-- **E-Prescription & Pharmacy** - Digital prescriptions with local pharmacy integration
+📌 Problem Statement
 
-### 🤖 **AI-Powered Features**
-- **Groq API Integration** - Real-time medical assistance using llama-3.1-8b-instant
-- **Eye Disease Detection** - Detects cataracts, glaucoma, diabetic retinopathy, and more
-- **Prescription Generation** - AI-powered prescription recommendations
-- **Medical Report Generation** - Comprehensive consultation reports for doctors
+Access to quality healthcare remains a major challenge in rural areas due to:
 
-### 🌐 **Technical Highlights**
-- **Offline-First Architecture** - Works without internet, syncs when connected
-- **Progressive Web App** - Runs on any device from smartphones to tablets
-- **Real-time Communication** - WebSocket-based updates and notifications
-- **Multi-Database Support** - SQLite for development, PostgreSQL for production
-- **Firebase Authentication** - Secure user management and access control
+Limited availability of doctors and specialists
 
-## 🛠️ Technology Stack
+Poor internet connectivity
 
-### Frontend
-- **React 18.3.1** with TypeScript
-- **Tailwind CSS** for styling
-- **Radix UI** components
-- **Framer Motion** & **GSAP** for animations
-- **Three.js** for 3D graphics
-- **Wouter** for routing
+Long travel distances to hospitals
 
-### Backend
-- **Express.js 5.0.1** with TypeScript
-- **Drizzle ORM** for database management
-- **Firebase** for authentication
-- **WebSocket** for real-time communication
-- **Multer** for file uploads
+Fragmented and paper-based medical records
 
-### Database
-- **PostgreSQL** (Production)
-- **SQLite** (Development)
-- **Firebase Firestore** (User data)
+TeleMed addresses these challenges by providing a technology-driven solution that brings healthcare services closer to rural communities.
 
-### AI/ML
-- **Groq API** (llama-3.1-8b-instant)
-- **MediaPipe** for eye image analysis
-- **Teachable Machine** for disease detection
+🎯 Project Objectives
 
-## 📱 Installation & Setup
+Enable remote healthcare access for rural patients
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
+Digitize and centralize patient medical records
 
-### Quick Start
+Integrate hardware-based vital sign monitoring
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Harish-0412/TeleMed.git
-   cd TeleMed
-   ```
+Support early disease detection using AI
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+Ensure uninterrupted operation in low-bandwidth and offline conditions
 
-3. **Start the application**
-   ```bash
-   npm run dev
-   ```
+Assist doctors with intelligent decision support
 
-4. **Open your browser**
-   - Go to: **http://localhost:5000**
-   - The application will load directly on the home page
+Improve emergency response and follow-up care
 
-### Environment Setup
+✨ Key Features
 
-Create a `.env` file in the root directory:
-```env
-NODE_ENV=development
-PORT=5000
-DATABASE_URL=your_database_url
-FIREBASE_CONFIG=your_firebase_config
-GROQ_API_KEY=your_groq_api_key
-```
+Offline-first telemedicine platform
 
-## 🏗️ Project Structure
+IoT-based vital sign monitoring (Heart Rate, SpO₂, Temperature, BP)
 
-```
-TeleMed/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/         # Application pages
-│   │   ├── contexts/      # React contexts
-│   │   └── public/        # Static assets
-├── server/                # Express backend
-│   ├── routes/           # API routes
-│   ├── middleware/       # Custom middleware
-│   └── database/         # Database schemas
-├── shared/               # Shared types and utilities
-└── docs/                # Documentation
-```
+AI-assisted disease screening and prescription support
 
-## 🎯 Key Features Breakdown
+Low-bandwidth text and audio teleconsultation
 
-### 1. Assisted Consultations
-- Local healthcare facilitators assist patients
-- Real-time language translation
-- Cultural sensitivity training
-- Emergency escalation protocols
+Digital medical records with auto-sync
 
-### 2. Low-Bandwidth Teleconsultation
-- Text-first interface with optional audio
-- Compressed image sharing
-- Offline mode with auto-sync
-- Progressive web app compatibility
+Real-time messaging and consultation tracking
 
-### 3. AI Eye Abnormality Detection
-- Real-time eye image analysis
-- Detects 5 major conditions:
-  - Healthy Eye
-  - Cataract
-  - Diabetic Retinopathy
-  - Retinitis Pigmentosa
-  - Myopia
-- Confidence scoring and recommendations
+Pharmacy and clinic finder using maps
 
-### 4. Smart Scheduling
-- Real-time doctor availability
-- Automated reminders via SMS/WhatsApp
-- Queue management for walk-ins
-- Multi-location clinic coordination
+Secure authentication and role-based access control
 
-### 5. E-Prescription System
-- Digital prescription generation
-- Local pharmacy inventory integration
-- Generic medication alternatives
-- Medication adherence tracking
+🏗️ System Architecture (High-Level Flow)
+Patient
+  ↓
+Health Facilitator
+  ↓
+Medical Sensors / Manual Input
+  ↓
+IoT Edge Device (ESP32)
+  ↓
+TeleMed Web Application
+  ↓
+Backend Server (APIs)
+  ↓
+Offline DB (SQLite) / Cloud DB (PostgreSQL)
+  ↓
+AI & Intelligence Layer
+  ↓
+Doctor Consultation
+  ↓
+Prescription, Alerts & Follow-up
 
-## 🔧 Development
+🛠️ Technology Stack
+Core Framework & Runtime
 
-### Available Scripts
+Node.js (v18+)
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run check` - Type checking
-- `npm run db:push` - Push database schema
+React 18.3.1
 
-### Database Management
+Express 5.0.1
 
-The application supports both SQLite (development) and PostgreSQL (production):
+TypeScript 5.x
 
-```bash
-# Push schema changes
-npm run db:push
+Vite
 
-# Generate migrations
-npx drizzle-kit generate
+Frontend
 
-# Apply migrations
-npx drizzle-kit migrate
-```
+Tailwind CSS 4.x
 
-## 🌍 Deployment
+Radix UI (30+ components)
 
-### Production Deployment
+Framer Motion & GSAP
 
-1. **Build the application**
-   ```bash
-   npm run build
-   ```
+Three.js
 
-2. **Set environment variables**
-   ```bash
-   export NODE_ENV=production
-   export DATABASE_URL=your_production_db_url
-   ```
+React Hook Form + Zod
 
-3. **Start the server**
-   ```bash
-   npm start
-   ```
+React Query
 
-### Docker Deployment
+Wouter
 
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-RUN npm run build
-EXPOSE 5000
-CMD ["npm", "start"]
-```
+Backend
 
-## 🤝 Contributing
+Drizzle ORM
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+PostgreSQL (Production)
 
-## 📄 License
+SQLite / Better-SQLite3 (Offline & Development)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Firebase Authentication
 
-## 🙏 Acknowledgments
+Passport & Sessions
 
-- **Groq** for AI API services
-- **Firebase** for authentication and database
-- **Radix UI** for accessible components
-- **Tailwind CSS** for styling framework
-- **MediaPipe** for computer vision capabilities
+WebSocket (Real-time updates)
 
-## 📞 Support
+Multer (File uploads)
 
-For support and questions:
-- Create an issue on GitHub
-- Email: support@telemed.com
-- Documentation: [docs.telemed.com](https://docs.telemed.com)
+AI & External Services
 
----
+MediaPipe Tasks Vision (Eye disease detection)
 
-**TeleMed** - Empowering rural healthcare through technology 🏥💚
+Claude API (AI health assistant & prescriptions)
+
+Daily.co (Low-bandwidth audio/video calls)
+
+Google Maps, Places & Distance Matrix APIs
+
+📊 Core Modules
+1. Consultation Management
+
+Create and manage consultations
+
+Priority tagging (Low / Medium / High)
+
+Doctor assignment and follow-ups
+
+Consultation history tracking
+
+2. Teleconsultation
+
+Low-bandwidth audio and text communication
+
+Mobile-optimized interface
+
+Secure and encrypted communication
+
+3. Digital Medical Records
+
+Patient demographics and medical history
+
+Offline storage with automatic cloud sync
+
+Role-based access and audit trail
+
+4. E-Prescription & AI Health Assistant
+
+AI-assisted prescription generation
+
+Dosage recommendations and drug interaction checks
+
+Emergency alerts and follow-up guidance
+
+5. Eye Disease Analysis
+
+Cataract, conjunctivitis, pterygium detection
+
+Image upload with confidence and severity scoring
+
+AI-generated recommendations
+
+6. Pharmacy & Clinic Finder
+
+GPS-based nearby search
+
+Interactive maps with distance and ETA
+
+Direct calling and navigation
+
+7. User & Patient Management
+
+Roles: Doctor, Facilitator, Admin
+
+Secure authentication and profile management
+
+Patient search and record updates
+
+🧪 Methodology (Short)
+
+The system follows a layered methodology integrating IoT hardware, a web-based application, backend services, and AI modules. Patient data and vitals are collected by facilitators, stored offline when required, synchronized to the cloud, analyzed by AI modules, and reviewed by doctors through low-bandwidth teleconsultation.
+
+✨ Novelty
+
+TeleMed uniquely combines IoT-based vital monitoring, AI-assisted screening, and an offline-first telemedicine architecture tailored for rural healthcare. Unlike traditional systems, it operates reliably in low-bandwidth environments while supporting automated vitals capture and intelligent clinical decision support.
+
+🌍 Societal Impact
+
+Improves healthcare accessibility in rural areas
+
+Reduces travel cost and time for patients
+
+Enables early disease detection and intervention
+
+Strengthens rural healthcare infrastructure
+
+Supports public health monitoring and planning
+
+👥 Beneficiaries
+
+Rural patients
+
+Health facilitators and community workers
+
+Doctors and specialists
+
+Clinics and healthcare institutions
+
+Government and public health authorities
+
+🚀 Project Status
+
+Core Services: Fully Implemented
+
+Offline Support: Complete
+
+AI Integration: Active
+
+Deployment: Production-ready
+
+📌 Future Enhancements
+
+Wearable device integration
+
+Advanced diagnostics (ECG, spirometry)
+
+Mobile application (React Native)
+
+SMS notifications and reminders
+
+Government health system integration
+
+📄 License
+
+This project is developed for academic and research purposes.
+License details can be added as per requirement.
+
+🤝 Contributing
+
+Contributions, issues, and feature requests are welcome.
+Feel free to fork the repository and submit pull requests.
