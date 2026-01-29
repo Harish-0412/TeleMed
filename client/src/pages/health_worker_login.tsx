@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'wouter';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../contexts/AuthContext';
 import Header from '../components/Header';
 import { User, Mail, Lock, Eye, EyeOff, Stethoscope } from 'lucide-react';
 
 export default function HealthWorkerLogin() {
-  const [, setLocation] = useLocation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
@@ -33,7 +31,7 @@ export default function HealthWorkerLogin() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       const redirectUrl = getRedirectUrl();
-      setLocation(redirectUrl);
+      window.location.hash = `#${redirectUrl}`;
     } catch (err: any) {
       // Handle different error types
       if (err.code === 'auth/user-not-found') {
@@ -60,7 +58,7 @@ export default function HealthWorkerLogin() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const redirectUrl = getRedirectUrl();
-      setLocation(redirectUrl);
+      window.location.hash = `#${redirectUrl}`;
     } catch (err: any) {
       // Handle different error types
       if (err.code === 'auth/email-already-in-use') {

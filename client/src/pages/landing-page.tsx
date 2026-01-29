@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import {
   Calendar,
   Pill,
@@ -229,11 +228,11 @@ export default function LandingPage() {
                 </button>
               </div>
             ) : (
-              <Link href="/login">
+              <a href="#/login">
                 <button className="bg-gradient-to-r from-amazon-600 to-amazon-700 hover:from-amazon-700 hover:to-amazon-800 text-white px-8 py-3 rounded-lg font-medium transform transition-all duration-300 hover:scale-105">
                   Health Worker Login
                 </button>
-              </Link>
+              </a>
             )}
           </div>
         </div>
@@ -401,16 +400,16 @@ export default function LandingPage() {
               Join healthcare providers using our platform to deliver quality care to rural communities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/consultations">
+              <a href="#/consultations">
                 <Button size="lg" className="h-12 px-8 text-base bg-amazon-600 hover:bg-amazon-700">
                   Start Consultation
                 </Button>
-              </Link>
-              <Link href="/pharmacy">
+              </a>
+              <a href="#/pharmacy">
                 <Button variant="outline" size="lg" className="h-12 px-8 text-base border-amazon-600 text-amazon-600 hover:bg-amazon-50">
                   Find Pharmacy
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -448,11 +447,11 @@ export default function LandingPage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Platform</h4>
               <ul className="space-y-2">
-                <li><Link href="/consultations" className="text-gray-300 hover:text-white transition-colors">Consultations</Link></li>
-                <li><Link href="/teleconsult" className="text-gray-300 hover:text-white transition-colors">Teleconsult</Link></li>
-                <li><Link href="/records" className="text-gray-300 hover:text-white transition-colors">Eye Detection</Link></li>
-                <li><Link href="/pharmacy" className="text-gray-300 hover:text-white transition-colors">Pharmacy Finder</Link></li>
-                <li><Link href="/prescriptions" className="text-gray-300 hover:text-white transition-colors">Prescriptions</Link></li>
+                <li><a href="#/consultations" className="text-gray-300 hover:text-white transition-colors">Consultations</a></li>
+                <li><a href="#/teleconsult" className="text-gray-300 hover:text-white transition-colors">Teleconsult</a></li>
+                <li><a href="#/records" className="text-gray-300 hover:text-white transition-colors">Eye Detection</a></li>
+                <li><a href="#/pharmacy" className="text-gray-300 hover:text-white transition-colors">Pharmacy Finder</a></li>
+                <li><a href="#/prescriptions" className="text-gray-300 hover:text-white transition-colors">Prescriptions</a></li>
               </ul>
             </div>
             
