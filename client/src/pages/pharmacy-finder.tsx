@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Header from '@/components/Header';
-import { useLocation } from 'wouter';
 
 // Types
 interface Location {
@@ -44,7 +43,6 @@ declare global {
 }
 
 const PharmacyFinder: React.FC = () => {
-  const [, setLocation] = useLocation();
   const [userLocation, setUserLocation] = useState<Location | null>(null);
   const [pharmacies, setPharmacies] = useState<PlaceWithDistance[]>([]);
   const [clinics, setClinics] = useState<PlaceWithDistance[]>([]);
@@ -226,7 +224,7 @@ const PharmacyFinder: React.FC = () => {
       size="sm"
       variant="outline"
       className="w-full border-green-600 text-green-600 hover:bg-green-50"
-      onClick={() => setLocation('/buy-medicine')}
+      onClick={() => window.location.hash = '#/buy-medicine'}
     >
       <ShoppingCart className="h-4 w-4 mr-1" />
       Buy Medicine

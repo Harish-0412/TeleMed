@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'wouter';
 import { gsap } from 'gsap';
 import './PillNav.css';
 
@@ -226,9 +225,9 @@ const PillNav = ({
     <div className="pill-nav-container">
       <nav className={`pill-nav ${className}`} aria-label="Primary" style={cssVars}>
         {isRouterLink('/') ? (
-          <Link
+          <a
             className="pill-logo"
-            href="/"
+            href="#/"
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
             role="menuitem"
@@ -237,11 +236,11 @@ const PillNav = ({
             }}
           >
             <img src={logo} alt={logoAlt} ref={logoImgRef} />
-          </Link>
+          </a>
         ) : (
           <a
             className="pill-logo"
-            href="/"
+            href="#/"
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
             ref={el => {
@@ -257,9 +256,9 @@ const PillNav = ({
             {items.map((item, i) => (
               <li key={item.href || `item-${i}`} role="none">
                 {isRouterLink(item.href) ? (
-                  <Link
+                  <a
                     role="menuitem"
-                    href={item.href}
+                    href={`#${item.href}`}
                     className={`pill${activeHref === item.href ? ' is-active' : ''}`}
                     aria-label={item.ariaLabel || item.label}
                     onMouseEnter={() => handleEnter(i)}
@@ -278,7 +277,7 @@ const PillNav = ({
                         {item.label}
                       </span>
                     </span>
-                  </Link>
+                  </a>
                 ) : (
                   <a
                     role="menuitem"
@@ -324,13 +323,13 @@ const PillNav = ({
           {items.map((item, i) => (
             <li key={item.href || `mobile-item-${i}`}>
               {isRouterLink(item.href) ? (
-                <Link
-                  href={item.href}
+                <a
+                  href={`#${item.href}`}
                   className={`mobile-menu-link${activeHref === item.href ? ' is-active' : ''}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
-                </Link>
+                </a>
               ) : (
                 <a
                   href={item.href}

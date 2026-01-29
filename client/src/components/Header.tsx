@@ -1,4 +1,3 @@
-import { useLocation, Link } from 'wouter';
 import { useAuth } from '@/contexts/AuthContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/contexts/AuthContext';
@@ -7,7 +6,7 @@ import { useState } from 'react';
 
 export default function Header() {
   const { user } = useAuth();
-  const [location] = useLocation();
+  const location = window.location.hash.replace('#', '') || '/';
 
   const handleLogout = async () => {
     try {
@@ -67,11 +66,11 @@ export default function Header() {
               </button>
             </>
           ) : (
-            <Link href="/login">
+            <a href="#/login">
               <button className="bg-gradient-to-r from-amazon-600 to-amazon-700 hover:from-amazon-700 hover:to-amazon-800 text-white px-6 py-2 rounded-lg font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:-translate-y-1 active:scale-95">
                 Health Worker Login
               </button>
-            </Link>
+            </a>
           )}
         </div>
       </div>
