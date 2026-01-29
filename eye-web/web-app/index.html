@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Eye Health Detection</title>
+  <link rel="stylesheet" href="style.css?v=eca19914-ce38-4002-825a-456dd8f6c561">
+</head>
+<body>
+
+  <h2>Eye Health Detection (Image Analysis)</h2>
+
+  <p id="status">Loading AI Model...</p>
+
+  <div class="upload-section" style="background: #eef; padding: 15px; margin: 10px auto; max-width: 600px; border-radius: 8px;">
+    <h3>Analyze Static Image</h3>
+    <p class="small">Upload an eye image to check for: Retinitis Pigmentosa, Healthy, Diabetic Retinopathy, Myopia, or Cataract.</p>
+    <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)">
+    <div id="image-preview-container" style="margin-top: 10px; display: none;">
+      <img id="imagePreview" src="#" alt="Image Preview" style="max-width: 200px; border: 2px solid #333;"/>
+      <p id="staticResult" style="font-weight: bold; font-size: 1.2em; margin-top: 10px;"></p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button onclick="saveScan('Normal')">Save as Normal</button>
+    <button onclick="saveScan('Cataract')">Save as Cataract</button>
+    <button onclick="saveScan('Abnormal')">Save as Abnormal</button>
+    <!-- New Buttons for expanded disease list -->
+    <br><br>
+    <button onclick="saveScan('Retinitis Pigmentosa')">Save RP</button>
+    <button onclick="saveScan('Diabetic Retinopathy')">Save DR</button>
+    <button onclick="saveScan('Myopia')">Save Myopia</button>
+  </div>
+  <p class="small">Click to save accurate data to Database</p>
+
+  <h3 id="finalResult"></h3>
+
+  <div id="database-feed">
+    <h4>Recent Database Entries (Realtime)</h4>
+    <ul id="scanList"></ul>
+  </div>
+
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <!-- Firebase Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <!-- Firebase Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+
+  <!-- Teachable Machine Image -->
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+  <script src="firebase-config.js"></script>
+  <script src="script.js?v=3b45b2bd-0f6f-43ea-b0b0-47eeaca15f1f"></script>
+</body>
+</html>
