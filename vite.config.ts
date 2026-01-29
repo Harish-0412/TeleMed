@@ -4,7 +4,7 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
-  base: './',
+  base: '/TeleMed/',
   plugins: [
     react(),
     runtimeErrorOverlay(),
